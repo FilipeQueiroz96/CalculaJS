@@ -3,10 +3,25 @@ var display = document.getElementById('display')
 var numeros = document.querySelectorAll('[id*=tecla]')
 var operadores = document.querySelectorAll('[id*=operador]')
 
+document.getElementById('igual').addEventListener('click', ativarIgual);
+document.getElementById('limparDisplay').addEventListener('click', limparDisplay)
+
+
+
 var novoNumero = true;
 var operador
 var numeroAnterior;
 
+function limparDisplay(){
+    display.textContent = ''
+    operador = undefined;
+    numeroAnterior = undefined;
+}
+
+function ativarIgual(){
+    calcular();
+    operador = undefined;
+}
 
 
 function calcular(){
@@ -63,5 +78,4 @@ operadores.forEach(function(operador){
 
 
 
-document.getElementById('igual').addEventListener('click', calcular);
-document.getElementById('limparDisplay').addEventListener('click', calcular)
+
